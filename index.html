@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Factura/Proforma</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style>
+        .invoice-header {
+            position: relative;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .paid-stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            opacity: 0.8;
+            transform: rotate(15deg);
+        }
+        
+        .company-logo {
+            max-height: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .table-items {
+            margin-bottom: 30px;
+        }
+        
+        .totals-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .paid-stamp {
+                position: static;
+                transform: none;
+                margin-bottom: 20px;
+            }
+            
+            .invoice-header {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <!-- Tu factura/proforma irá aquí -->
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div class="container-fluid py-4">
+    <!-- Encabezado con z-index para elementos superpuestos -->
+    <div class="invoice-header position-relative">
+        <!-- Logo de la empresa -->
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="https://via.placeholder.com/200x80?text=LOGO" alt="Logo Empresa" class="company-logo img-fluid">
+                <h1 class="display-6">Nombre de la Empresa</h1>
+                <p class="text-muted mb-0">Dirección de la empresa</p>
+                <p class="text-muted">Teléfono: (123) 456-7890</p>
+            </div>
+            
+            <div class="col-md-6 text-md-end">
+                <div class="position-relative">
+                    <h2 class="text-uppercase mb-3">Factura #<span class="fw-bold">INV-2023-001</span></h2>
+                    <p class="mb-1"><span class="fw-bold">Fecha:</span> <span class="text-muted">25/05/2023</span></p>
+                    <p class="mb-1"><span class="fw-bold">Vence:</span> <span class="text-muted">25/06/2023</span></p>
+                    
+                    <!-- Sello "PAGADO" con z-index -->
+                    <div class="paid-stamp bg-success text-white p-3 rounded shadow d-none d-md-block">
+                        <h3 class="m-0 text-uppercase fw-bold">Pagado</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+    <!-- Información de la empresa (visible solo en pantallas grandes) -->
+    <div class="col-lg-4 mb-3 mb-lg-0 d-none d-lg-block">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Información de la Empresa</h5>
+                <p class="card-text mb-1"><strong>RUC:</strong> 1234567890123</p>
+                <p class="card-text mb-1"><strong>Dirección:</strong> Av. Principal 123</p>
+                <p class="card-text mb-1"><strong>Teléfono:</strong> (123) 456-7890</p>
+                <p class="card-text"><strong>Email:</strong> contacto@empresa.com</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Información del cliente -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <h5 class="card-title">Cliente</h5>
+                        <p class="card-text mb-1"><strong>Nombre:</strong> Cliente Ejemplo S.A.</p>
+                        <p class="card-text mb-1"><strong>RUC/Cédula:</strong> 0987654321001</p>
+                        <p class="card-text mb-1"><strong>Teléfono:</strong> (098) 765-4321</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="card-title">Dirección de Envío</h5>
+                        <p class="card-text">Av. Ejemplo 456, Edificio 2, Oficina 3B<br>Guayaquil, Ecuador</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-items table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center" style="width: 5%">#</th>
+                        <th style="width: 50%">Descripción</th>
+                        <th class="text-center" style="width: 15%">Cantidad</th>
+                        <th class="text-end" style="width: 15%">P. Unitario</th>
+                        <th class="text-end" style="width: 15%">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>Servicio de Desarrollo Web</td>
+                        <td class="text-center">1</td>
+                        <td class="text-end">$1,200.00</td>
+                        <td class="text-end">$1,200.00</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>Diseño de Logotipo</td>
+                        <td class="text-center">1</td>
+                        <td class="text-end">$300.00</td>
+                        <td class="text-end">$300.00</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td>Hosting Anual</td>
+                        <td class="text-center">1</td>
+                        <td class="text-end">$150.00</td>
+                        <td class="text-end">$150.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-end">
+    <div class="col-md-6 col-lg-5">
+        <div class="totals-section">
+            <div class="row mb-2">
+                <div class="col-6 text-end">
+                    <strong>Subtotal:</strong>
+                </div>
+                <div class="col-6 text-end">
+                    $1,650.00
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-6 text-end">
+                    <strong>IVA (12%):</strong>
+                </div>
+                <div class="col-6 text-end">
+                    $198.00
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-6 text-end">
+                    <strong>Descuento:</strong>
+                </div>
+                <div class="col-6 text-end">
+                    -$50.00
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 text-end">
+                    <h5 class="mb-0">Total:</h5>
+                </div>
+                <div class="col-6 text-end">
+                    <h5 class="mb-0">$1,798.00</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Observaciones</h5>
+                <p class="card-text">El pago debe realizarse dentro de los 30 días posteriores a la emisión de esta factura. Cualquier retraso en el pago podría generar intereses moratorios según lo establecido en la ley.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12 text-center">
+        <p class="text-muted">Gracias por su preferencia</p>
+        <div class="d-flex justify-content-center gap-4">
+            <span class="border-top pt-2">Firma Autorizada</span>
+            <span class="border-top pt-2">Sello de la Empresa</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html><h1>MiguelMorocho</h1>
